@@ -1,2 +1,46 @@
-# Baekjoon
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# 백준 문제 풀이 저장소
+## 🏃‍♀️‍➡️진행 방식
+1. `npm run new 0000 1` : 백준에서 풀이하려는 문제 파일을 로컬에 생성
+2. `input.txt` : 해당 문제의 입력 예제를 복붙
+3. `node solve/10000.js` : 실행하여 올바른 값이 나오는지 확인
+4. `0000.js` 코드를 백준 제출에 복붙
+5. `0000.js` 주석으로 피드백을 붙여 add, commit, push 진행
+
+## 설명
+### ✏️ `/solve` : 로컬 풀이
+- 로컬 환경에서 문제 풀이를 해 본 기록입니다.
+- 간단한 문제는 풀이가 없을 수 있습니다.
+- 코드에 대한 생각이 주석으로 종종 달려있습니다.
+
+### ⬆️ `/백준` : 자동 push
+- 백준 사이트에서 문제를 제출하면 자동으로 push되는 폴더입니다.
+- 제출 완료한 모든 문제들이 있습니다.
+
+### ⚙️ `javascript 풀이를 위한 세팅`
+- 백준에서 자바스크립트로 문제를 풀이하기 위해 필요한 세팅입니다.
+
+**1. `/solve/run/input.txt`**
+- 예제 입력을 작성하는 파일입니다.
+- 매 풀이마다 값이 바뀌지만 의미가 없기에 로컬에서 `.gitignore` 처리를 하여 레포에서는 보이지 않습니다.
+  <img width="657" height="307" alt="image" src="https://github.com/user-attachments/assets/801303f7-0e95-4559-aee6-6ade92f46662" />
+
+**2. `create.js`**
+- 예제 입력 유형에 따른 input을 정의하는 파일을 생성하는 스크립트입니다.
+- `npm run new [파일명] [case number]`를 입력하여 문제 풀이 파일을 생성합니다.
+  - ex) `npm run new 20000 1` -> `solve` 폴더에 1번 형식의 `2000.js` 파일 생성
+- 정의된 입력 유형은 아래와 같습니다.
+  - `1` : 숫자 하나만 입력
+  - `2` : 한 줄에 공백으로 구분하여 숫자 여러 개 입력
+  - `3` : 여러 줄에 숫자 하나씩 입력
+  - `4` : 여러 줄에 공백으로 구분하여 숫자 여러 개 입력
+- 경우에 따라 생성된 파일을 조금씩 변형하여 사용합니다.
+  - 문자열 입력이 필요한 경우 `Number` 변환부를 삭제
+  - 입력 형식에 따라 3, 4 유형의 `[n, ...arr]` 부분 변형
+ 
+**3. `package.json`**
+- new 스크립트 명령어 작성 : `"scripts": { "new": "node create.js" }`
+
+
+https://github.com/user-attachments/assets/532e5fe8-82a8-4e12-8c18-3c4d63d3a845
+
+
