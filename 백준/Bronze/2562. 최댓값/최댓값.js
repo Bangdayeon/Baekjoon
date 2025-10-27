@@ -1,16 +1,14 @@
-const filePath = process.platform === "linux" ? "/dev/stdin" : require("path").join(__dirname, "run", "input.txt");
-const input = require("fs").readFileSync(filePath).toString().trim().split(/\s+/);
-let [...arr] = input.map(Number);
+const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(/\s+/);
+let arr = input.map(Number);
 
 function solution(arr) {
   let max = -Infinity;
-  for(num of arr) {
-    if(num>max)max=num;
-  }
-  let count=1;
-  for(num of arr) {
-    if(num===max) break;
-    count++;
+  let count=0;
+  for(let i=0;i<arr.length;i++) {
+    if(arr[i] > max){
+      max = arr[i];
+      count = i + 1;
+    };
   }
 
   console.log(`${max}\n${count}`);
