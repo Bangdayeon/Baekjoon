@@ -1,20 +1,12 @@
-const filePath = process.platform === "linux" ? "/dev/stdin" : require("path").join(__dirname, "run", "input.txt");
-const input = require("fs").readFileSync(filePath).toString().trim().split(/\s+/);
+const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(/\s+/);
 let arr = input.map(Number);
 
-function solution(arr) {
-  const check = Array(30).fill(0);
-  for(let i=0;i<=30;i++) {
-    for(let j=0;j<=30;j++) {
-      if(arr[i] === j) {
-        check[j-1] = arr[i];
-      }
-    }
-  }
-  for(let i=0;i<=30; i++) {
-    if(check[i] === 0)
-      console.log(i+1);
-  }
+const check = Array(30).fill(0);
+
+for(let num of arr) {
+  check[num-1] = true;
 }
 
-solution(arr);
+for(let i=0;i<30;i++) {
+  if(!check[i]) console.log(i+1);
+}
