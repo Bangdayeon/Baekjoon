@@ -8,14 +8,10 @@ let [n, ...arr] = input;
 
 function solution(n, arr) {
   for(let i=0;i<n;i++){
-    let num = arr[i].split(' ')[0];
-    let str = arr[i].split(' ')[1];
-
+    let [num, str] = arr[i].split(' ');
     let answer = '';
     for(let j=0;j<str.length;j++){
-      for(let k=0;k<num;k++){
-        answer += str[j];
-      }
+      answer += str[j].repeat(num);
     }
     console.log(answer);
   }
