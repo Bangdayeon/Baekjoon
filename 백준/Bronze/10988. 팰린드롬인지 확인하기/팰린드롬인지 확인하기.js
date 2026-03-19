@@ -2,8 +2,13 @@ const filePath = process.platform === "linux" ? "/dev/stdin" : require("path").j
 const input = require("fs").readFileSync(filePath).toString().trim();
 
 function solution(char) {
-  let n = char.split('').reverse().join('');
-  console.log(char===n?1:0);
+  let answer = 1;
+  let mid = char.length-1;
+  
+  for(let i=0;i<mid/2;i++){
+    if(char[i] !== char[mid-i]) answer = 0;
+  }
+  console.log(answer);
 }
 
 solution(input);
