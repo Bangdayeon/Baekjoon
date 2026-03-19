@@ -3,7 +3,9 @@ const input = require("fs").readFileSync(filePath).toString().trim().split("\n")
 const [...arr] = input;
 
 function solution(arr) {
-  console.log(arr.join('\n'));
+  for(let i=0;i<arr.length;i++){
+    console.log(arr[i]);
+  }
 }
 
 solution(arr);
