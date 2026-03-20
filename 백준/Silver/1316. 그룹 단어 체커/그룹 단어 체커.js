@@ -8,19 +8,19 @@ function solution(n, arr) {
   for(let i = 0; i<n; i++) {
     let check = true;
     let str = arr[i];
-    let seen = new Set();
+    let seen = new Array();
 
-    seen.add(str[0]);
+    seen[0] = str[0];
 
     for(let j=1; j<str.length; j++) {
       if(str[j] === str[j-1]) continue;
 
-      if(seen.has(str[j])) {
+      if(seen.includes(str[j])) {
         check = false;
         break;
       }
 
-      seen.add(str[j]);
+      seen[j] = str[j];
     }
     if(check) answer++;
   }
