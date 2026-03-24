@@ -9,7 +9,7 @@ function solution(arr) {
   for(let i=0; i<81; i++){
     if(arr[i] > max) {
       max = arr[i];
-      n = Math.trunc(i/9);
+      n = Math.floor(i/9);
       m = i % 9;
     };
   }
